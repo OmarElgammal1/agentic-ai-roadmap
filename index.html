@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI Learning Roadmap — by Omar Elgammal</title>
+<meta name="description" content="A curated, step-by-step path through the best free resources to master agentic AI in 2025–2026.">
+<meta property="og:title" content="The Agentic AI Learning Roadmap">
+<meta property="og:description" content="From zero to production-ready agents. A curated guide by Omar Elgammal.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08090d;
+    --bg-raised: #0f1117;
+    --bg-card: #151820;
+    --bg-card-hover: #1a1e2a;
+    --border: #1e2230;
+    --border-hover: #2a3045;
+    --text: #e4e6ed;
+    --text-secondary: #8b8fa5;
+    --text-muted: #565a6e;
+
+    --accent-1: #6366f1; /* indigo — foundations */
+    --accent-1-soft: rgba(99,102,241,0.1);
+    --accent-2: #10b981; /* emerald — courses */
+    --accent-2-soft: rgba(16,185,129,0.1);
+    --accent-3: #f43f5e; /* rose — langgraph */
+    --accent-3-soft: rgba(244,63,94,0.1);
+    --accent-4: #f59e0b; /* amber — n8n */
+    --accent-4-soft: rgba(245,158,11,0.1);
+    --accent-5: #a78bfa; /* violet — level up */
+    --accent-5-soft: rgba(167,139,250,0.1);
+    --accent-6: #64748b; /* slate — bonus */
+    --accent-6-soft: rgba(100,116,139,0.1);
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --timeline-width: 2px;
+    --node-size: 18px;
+    --max-width: 780px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-1);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-top: 1.5rem;
+    max-width: 460px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-author {
+    margin-top: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .hero-author strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .scroll-hint .arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 1.5px solid var(--text-muted);
+    border-bottom: 1.5px solid var(--text-muted);
+    transform: rotate(45deg);
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+
+  /* ─── ROADMAP CONTAINER ─── */
+  .roadmap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem 8rem;
+    position: relative;
+  }
+
+  /* Vertical timeline line */
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: var(--timeline-width);
+    background: linear-gradient(to bottom, transparent, var(--border) 5%, var(--border) 95%, transparent);
+  }
+
+  /* ─── STEP SECTION ─── */
+  .step {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 5rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Timeline node */
+  .step::before {
+    content: '';
+    position: absolute;
+    left: calc(40px - var(--node-size) / 2 + 1px);
+    top: 8px;
+    width: var(--node-size);
+    height: var(--node-size);
+    border-radius: 50%;
+    border: 2.5px solid var(--node-color, var(--accent-1));
+    background: var(--bg);
+    z-index: 2;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .step:hover::before {
+    background: var(--node-color, var(--accent-1));
+    box-shadow: 0 0 20px var(--node-glow, rgba(99,102,241,0.3));
+  }
+
+  .step[data-color="1"] { --node-color: var(--accent-1); --node-glow: rgba(99,102,241,0.3); }
+  .step[data-color="2"] { --node-color: var(--accent-2); --node-glow: rgba(16,185,129,0.3); }
+  .step[data-color="3"] { --node-color: var(--accent-3); --node-glow: rgba(244,63,94,0.3); }
+  .step[data-color="4"] { --node-color: var(--accent-4); --node-glow: rgba(245,158,11,0.3); }
+  .step[data-color="5"] { --node-color: var(--accent-5); --node-glow: rgba(167,139,250,0.3); }
+  .step[data-color="6"] { --node-color: var(--accent-6); --node-glow: rgba(100,116,139,0.3); }
+
+  /* Step header */
+  .step-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--node-color, var(--accent-1));
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .step-tag {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    background: var(--tag-bg, var(--accent-1-soft));
+    color: var(--node-color, var(--accent-1));
+    text-transform: uppercase;
+  }
+
+  .step[data-color="1"] .step-tag { --tag-bg: var(--accent-1-soft); }
+  .step[data-color="2"] .step-tag { --tag-bg: var(--accent-2-soft); }
+  .step[data-color="3"] .step-tag { --tag-bg: var(--accent-3-soft); }
+  .step[data-color="4"] .step-tag { --tag-bg: var(--accent-4-soft); }
+  .step[data-color="5"] .step-tag { --tag-bg: var(--accent-5-soft); }
+  .step[data-color="6"] .step-tag { --tag-bg: var(--accent-6-soft); }
+
+  .step h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    max-width: 580px;
+  }
+
+  /* ─── RESOURCE CARDS ─── */
+  .resources {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem 1.35rem;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateX(4px);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--card-accent, var(--accent-1));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .card-badge {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .badge-free {
+    background: var(--accent-2-soft);
+    color: var(--accent-2);
+  }
+
+  .badge-recommended {
+    background: var(--accent-3-soft);
+    color: var(--accent-3);
+  }
+
+  .badge-optional {
+    background: var(--accent-6-soft);
+    color: var(--text-muted);
+  }
+
+  .card-source {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .card-link-icon {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%) translateX(4px);
+    opacity: 0;
+    transition: all 0.25s ease;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .card:hover .card-link-icon {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* Highlighted card */
+  .card.highlight {
+    background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(244,63,94,0.02));
+    border-color: rgba(244,63,94,0.2);
+  }
+
+  .card.highlight:hover {
+    border-color: rgba(244,63,94,0.35);
+    box-shadow: 0 4px 30px rgba(244,63,94,0.08);
+  }
+
+  /* ─── CALLOUT BOX ─── */
+  .callout {
+    border: 1px solid rgba(167,139,250,0.2);
+    background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(167,139,250,0.02));
+    border-radius: 12px;
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--accent-5);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .callout p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ─── DIVIDER ─── */
+  .step-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .step-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-sub {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    max-width: 440px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .footer-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-author strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--accent-2);
+    border-radius: 100px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── ORDER NUMBERS ─── */
+  .order-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--card-accent, var(--accent-1));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 0.65rem;
+  }
+
+  .card-title-row {
+    display: flex;
+    align-items: center;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .roadmap::before { left: 20px; }
+    .step { padding-left: 52px; }
+    .step::before { left: calc(20px - var(--node-size) / 2 + 1px); }
+    .hero h1 { font-size: 2.4rem; }
+    .card { padding: 1rem 1.1rem; }
+    .card-head { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-eyebrow">Roadmap · 2025–2026 Edition</div>
+  <h1>The Agentic <em>AI</em> Learning Roadmap</h1>
+  <p class="hero-sub">A curated, step-by-step path through the best free resources to master agentic AI — from first principles to production-ready systems.</p>
+  <div class="hero-author">Curated by <strong>Omar Elgammal</strong></div>
+  <div class="scroll-hint">
+    <span>Scroll to begin</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ─── ROADMAP ─── -->
+<main class="roadmap">
+
+  <!-- ═══ STEP 1: FOUNDATIONS — VIDEOS ═══ -->
+  <section class="step" data-color="1">
+    <div class="step-label">
+      Step 1
+      <span class="step-tag">Start Here</span>
+    </div>
+    <h2>Build Your Intuition</h2>
+    <p class="step-desc">Watch these three videos in order. They'll give you the mental models you need before diving into anything technical.</p>
+
+    <div class="resources">
+      <a class="card" href="https://www.youtube.com/watch?v=Jj1-zb38Yfw" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">1</span>Agentic AI Explained So Anyone Can Get It!</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">YouTube</div>
+        <div class="card-text">Start here — the big picture of what agentic AI is and why it matters. No prerequisites needed.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://www.youtube.com/watch?v=FwOTs4UxQS4" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">2</span>AI Agents, Clearly Explained</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">YouTube</div>
+        <div class="card-text">A deeper dive into how agents reason, act, and observe — the core loop behind every agent framework.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://www.youtube.com/watch?v=ZaPbP9DwBOE" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">3</span>Fundamentals Needed to Learn AI Agents</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">YouTube</div>
+        <div class="card-text">Core prerequisites and foundational concepts you should know before building agents.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+
+    <div class="step-divider">Then Read</div>
+
+    <div class="resources">
+      <a class="card" href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">4</span>Building Effective Agents</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">Anthropic Research Blog</div>
+        <div class="card-text">The authoritative guide — distinguishing workflows from agents. Covers prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer loops.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://www.deeplearning.ai/courses/agentic-ai/" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">5</span>Agentic AI Course Overview</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">DeepLearning.AI — Andrew Ng</div>
+        <div class="card-text">Four design patterns from first principles: Reflection, Tool Use, Planning, and Multi-Agent collaboration. Culminates in a deep research agent.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system" target="_blank" rel="noopener" style="--card-accent: var(--accent-1)">
+        <div class="card-head">
+          <div class="card-title"><span class="card-title-row"><span class="order-num" style="background:var(--accent-1)">6</span>Choose a Design Pattern for Your Agentic AI System</span></div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">Google Cloud Architecture Center</div>
+        <div class="card-text">Enterprise reference covering ReAct, orchestrator-worker, sequential, hierarchical, and swarm patterns with diagrams and decision guidance.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 2: OPTIONAL COURSES ═══ -->
+  <section class="step" data-color="2">
+    <div class="step-label">
+      Step 2
+      <span class="step-tag">Optional</span>
+    </div>
+    <h2>Structured Learning</h2>
+    <p class="step-desc">These courses solidify your fundamentals with hands-on coding. Both are free and framework-agnostic — take them if you learn better with structured guidance.</p>
+
+    <div class="resources">
+      <a class="card" href="https://www.deeplearning.ai/courses/agentic-ai/" target="_blank" rel="noopener" style="--card-accent: var(--accent-2)">
+        <div class="card-head">
+          <div class="card-title">DeepLearning.AI Agentic AI Course</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">DeepLearning.AI — Andrew Ng</div>
+        <div class="card-text">Build four design patterns (Reflection, Tool Use, Planning, Multi-Agent) from first principles in Python. No framework lock-in.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://huggingface.co/docs/smolagents/index" target="_blank" rel="noopener" style="--card-accent: var(--accent-2)">
+        <div class="card-head">
+          <div class="card-title">Hugging Face AI Agents Course</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">Hugging Face — smolagents</div>
+        <div class="card-text">Complementary to Ng's course. Covers smolagents and open-source agent tooling with hands-on practice.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 3: LANGGRAPH ═══ -->
+  <section class="step" data-color="3">
+    <div class="step-label">
+      Step 3
+      <span class="step-tag">Most Recommended</span>
+    </div>
+    <h2>LangGraph Deep Dive</h2>
+    <p class="step-desc">Build stateful, graph-based agentic workflows. This is the framework path with the best learning ecosystem — start with the freeCodeCamp course.</p>
+
+    <div class="resources">
+      <a class="card highlight" href="https://www.youtube.com/watch?v=jGg_1h0qzaM" target="_blank" rel="noopener" style="--card-accent: var(--accent-3)">
+        <div class="card-head">
+          <div class="card-title">★ LangGraph Complete Course for Beginners</div>
+          <span class="card-badge badge-recommended">Top Pick</span>
+        </div>
+        <div class="card-source">freeCodeCamp — YouTube — 3+ hours</div>
+        <div class="card-text">Build 5 agents from scratch with design patterns and RAG development. The single best starting point for LangGraph. Companion GitHub repo included.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+
+    <div class="step-divider">Optional — Go Deeper</div>
+
+    <div class="resources">
+      <a class="card" href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank" rel="noopener" style="--card-accent: var(--accent-3)">
+        <div class="card-head">
+          <div class="card-title">Introduction to LangGraph</div>
+          <span class="card-badge badge-optional">Optional</span>
+        </div>
+        <div class="card-source">LangChain Academy — Free</div>
+        <div class="card-text">6 progressive modules covering state management, nodes, edges, memory, and human-in-the-loop patterns.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://academy.langchain.com/courses/deep-research-with-langgraph/" target="_blank" rel="noopener" style="--card-accent: var(--accent-3)">
+        <div class="card-head">
+          <div class="card-title">Deep Research Project with LangGraph</div>
+          <span class="card-badge badge-optional">Optional</span>
+        </div>
+        <div class="card-source">LangChain Academy — Free</div>
+        <div class="card-text">Build a multi-agent deep research system with LangSmith evaluation.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://academy.langchain.com/courses/ambient-agents" target="_blank" rel="noopener" style="--card-accent: var(--accent-3)">
+        <div class="card-head">
+          <div class="card-title">Ambient Agents with LangGraph</div>
+          <span class="card-badge badge-optional">Optional</span>
+        </div>
+        <div class="card-source">LangChain Academy — Free</div>
+        <div class="card-text">Build an always-on email management agent from scratch with evaluation via LangSmith.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 4: n8n ═══ -->
+  <section class="step" data-color="4">
+    <div class="step-label">
+      Step 4
+      <span class="step-tag">Recommended</span>
+    </div>
+    <h2>n8n: No-Code Agents</h2>
+    <p class="step-desc">Open-source workflow automation with powerful AI agent capabilities. Worth learning even as a developer — pick either path below.</p>
+
+    <div class="resources">
+      <a class="card" href="https://docs.n8n.io/learning-path/" target="_blank" rel="noopener" style="--card-accent: var(--accent-4)">
+        <div class="card-head">
+          <div class="card-title">n8n Learning Path</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">n8n Official Docs</div>
+        <div class="card-text">Structured curriculum from quickstart through advanced topics. Comprehensive and well-organized — the thorough route.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://www.classcentral.com/course/youtube-n8n-full-tutorial-building-ai-agents-in-2025-for-beginners-489930" target="_blank" rel="noopener" style="--card-accent: var(--accent-4)">
+        <div class="card-head">
+          <div class="card-title">N8N Full Tutorial — Building AI Agents (32 min)</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">AI Foundations — YouTube</div>
+        <div class="card-text">Quick comprehensive walkthrough: interface, AI Agent node, memory integration, tool creation, and sub-agents. The fast route.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 5: LEVEL UP ═══ -->
+  <section class="step" data-color="5">
+    <div class="step-label">
+      Step 5
+      <span class="step-tag">Even for Experts</span>
+    </div>
+    <h2>Level Up Your Toolkit</h2>
+    <p class="step-desc">These frameworks bring unique capabilities you won't find elsewhere. They're not just for beginners.</p>
+
+    <div class="callout">
+      <div class="callout-title">Important Note</div>
+      <p>Pydantic AI and Agno are worth learning <strong style="color:var(--text)">even if you're already experienced</strong> with agentic AI. They offer type safety, performance, and developer ergonomics that complement any existing stack.</p>
+    </div>
+
+    <div class="resources">
+      <a class="card" href="https://ai.pydantic.dev/" target="_blank" rel="noopener" style="--card-accent: var(--accent-5)">
+        <div class="card-head">
+          <div class="card-title">Pydantic AI</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">ai.pydantic.dev — Official Documentation</div>
+        <div class="card-text">Type-safe structured outputs, dependency injection, auto self-correction, and 30+ model providers. The "FastAPI feeling" for agent development.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://github.com/agno-agi/agno" target="_blank" rel="noopener" style="--card-accent: var(--accent-5)">
+        <div class="card-head">
+          <div class="card-title">Agno (formerly Phi Data)</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">github.com/agno-agi/agno — Open Source</div>
+        <div class="card-text">Lightweight, performance-first framework. Built-in tools, knowledge bases, memory, and multimodal I/O. Claims 10,000× faster agent creation.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ BONUS ═══ -->
+  <section class="step" data-color="6">
+    <div class="step-label">
+      Bonus
+      <span class="step-tag">Go Further</span>
+    </div>
+    <h2>Additional Resources</h2>
+    <p class="step-desc">More frameworks and comparison guides for when you want to go even deeper.</p>
+
+    <div class="resources">
+      <a class="card" href="https://www.deeplearning.ai/courses/design-develop-and-deploy-multi-agent-systems-with-crewai/" target="_blank" rel="noopener" style="--card-accent: var(--accent-6)">
+        <div class="card-head">
+          <div class="card-title">CrewAI — Multi-Agent Systems</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">DeepLearning.AI — by CrewAI founder João Moura</div>
+        <div class="card-text">Production-focused: memory, tools, MCP servers, guardrails, observability, and deployment.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://docs.openclaw.ai/" target="_blank" rel="noopener" style="--card-accent: var(--accent-6)">
+        <div class="card-head">
+          <div class="card-title">OpenClaw</div>
+          <span class="card-badge badge-free">Free</span>
+        </div>
+        <div class="card-source">docs.openclaw.ai</div>
+        <div class="card-text">Open-source agent framework documentation and guides.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+
+    <div class="step-divider">Framework Comparison Guides</div>
+
+    <div class="resources">
+      <a class="card" href="https://langfuse.com/blog/2025-03-19-ai-agent-comparison" target="_blank" rel="noopener" style="--card-accent: var(--accent-6)">
+        <div class="card-head">
+          <div class="card-title">12 Open-Source Frameworks Compared</div>
+        </div>
+        <div class="card-source">Langfuse Blog</div>
+        <div class="card-text">The most comprehensive and balanced analysis of the current framework landscape.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://www.codecademy.com/article/top-ai-agent-frameworks-in-2025" target="_blank" rel="noopener" style="--card-accent: var(--accent-6)">
+        <div class="card-head">
+          <div class="card-title">Top AI Agent Frameworks in 2025</div>
+        </div>
+        <div class="card-source">Codecademy</div>
+        <div class="card-text">Quick-reference table comparing type, pricing, community size, and best fit.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+
+      <a class="card" href="https://diamantai.substack.com/p/how-to-choose-your-ai-agent-framework" target="_blank" rel="noopener" style="--card-accent: var(--accent-6)">
+        <div class="card-head">
+          <div class="card-title">How to Choose Your AI Agent Framework</div>
+        </div>
+        <div class="card-source">DiamantAI — Substack</div>
+        <div class="card-text">Practical decision criteria based on streaming, error handling, and production readiness.</div>
+        <span class="card-link-icon">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-quote">The patterns transfer, the frameworks change.</div>
+  <p class="footer-sub">Prioritize understanding design patterns and architecture over any single framework. The field moves fast — foundations are what last.</p>
+  <div class="footer-badge">Every resource in this roadmap is free</div>
+  <br><br>
+  <div class="footer-author">Curated by <strong>Omar Elgammal</strong></div>
+</footer>
+
+<!-- ─── SCROLL ANIMATION ─── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.step').forEach(step => observer.observe(step));
+</script>
+
+</body>
+</html>
