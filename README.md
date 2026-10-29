@@ -1,55 +1,52 @@
-# 🤖 The Agentic AI Learning Roadmap
+# Agentic AI Roadmap
 
-A curated, step-by-step path through the best **free** resources to master agentic AI — from first principles to production-ready systems.
+The path I'd follow if I were learning to build AI agents from scratch today, from "what even is an agent" to running one in production.
 
-**[→ View the Live Roadmap](https://omarelgammal1.github.io/agentic-ai-roadmap/)**
+**[View the roadmap →](https://omarelgammal1.github.io/agentic-ai-roadmap/)**
 
----
+## Why I made this
 
-## What Is This?
+When I started, the hard part wasn't finding resources. It was knowing which ones to skip and what order to do the rest in. This is my answer to that: one path, in order, with a small project at the end of most steps so you're building as you go.
 
-An opinionated learning roadmap that cuts through the noise. Instead of an overwhelming list, this is a **sequenced path** — watch this, then read that, then build with this — so you always know what to do next.
+Everything is free except two books in the last section, and those are clearly marked.
 
-Every resource is free. No paywalls. No affiliate links.
+## The path
 
-## The Path
+| Step | Topic | What's in it |
+|------|-------|--------------|
+| 01 | The mental model | Three short videos, then Anthropic's *Building Effective Agents*, Chip Huyen's *Agents* essay and Google's design pattern guide |
+| 02 | A structured course *(optional)* | DeepLearning.AI or the Hugging Face Agents Course |
+| 03 | LangGraph & Deep Agents | The freeCodeCamp LangGraph course, then LangChain's Deep Agents library |
+| 04 | MCP & Agent Skills | The MCP docs, FastMCP, and how Agent Skills work |
+| 05 | Tracing & evals | LangSmith (with Phoenix and Langfuse as open-source options), plus metrics like groundedness, relevance and coherence |
+| 06 | Shipping it | FastAPI, Postgres/pgvector or MongoDB, Streamlit or Chainlit, Docker, and Azure or AWS |
+| 07 | Safety & governance | Prompt injection, the OWASP lists, NIST AI RMF, and what governance looks like in practice |
+| 08 | Two more frameworks | Pydantic AI and Agno |
+| ·· | Visual builders *(optional)* | n8n and Langflow |
+| ·· | Going further | CrewAI, framework comparisons, distributed systems, and two books worth buying |
 
-| Step | Focus | What You'll Learn |
-|------|-------|-------------------|
-| **1** | **Foundations** | 3 videos + 3 essential reads covering what agentic AI is, how agents work, and the core design patterns (ReAct, tool use, planning, multi-agent) |
-| **2** | **Structured Courses** *(optional)* | DeepLearning.AI and Hugging Face courses for hands-on practice with framework-agnostic fundamentals |
-| **3** | **LangGraph** *(most recommended)* | The freeCodeCamp 3-hour course is the top pick. Optional deep dives via LangChain Academy |
-| **4** | **n8n** *(recommended)* | No-code agent building — pick the official learning path or the 32-minute YouTube tutorial |
-| **5** | **Level Up** *(even for experts)* | Pydantic AI and Agno bring type safety, performance, and developer ergonomics that complement any stack |
-| **Bonus** | **Go Further** | CrewAI, OpenClaw, and framework comparison guides |
+## Building as you go
 
-## Why This Order?
+Most steps end with a "build it" task. Each task finishes with you writing an [Agent Skill](https://agentskills.io): a `SKILL.md` file that teaches a coding agent how to do what you just learned. By the end you have a set of skills you actually use, and writing them is a good way to check you understood the step.
 
-1. **Intuition first** — videos build mental models before you touch any code
-2. **Architecture second** — the Anthropic and Google Cloud guides teach patterns that outlast any framework
-3. **Framework third** — once you understand *why*, picking *how* becomes easy
-4. **Breadth last** — n8n, Pydantic AI, and Agno round out your toolkit with capabilities the main path doesn't cover
+The [`skills/`](skills/) folder has a template to start from and one worked example.
 
-## Deploy Your Own
+## Running it locally
 
-This is a single `index.html` file — no build step, no dependencies.
+It's one `index.html` file with no build step.
 
 ```bash
-# Clone
 git clone https://github.com/omarelgammal1/agentic-ai-roadmap.git
-
-# That's it. Open index.html in a browser, or deploy to GitHub Pages:
-# Settings → Pages → Source: main branch
 ```
+
+Open `index.html` in a browser. To host your own copy, turn on GitHub Pages under Settings → Pages and point it at `main`.
 
 ## Contributing
 
-Found a broken link? Know a resource that belongs here? Open an issue or submit a PR. The bar for inclusion: it should be free, high-quality, and recent (2024–2026).
+If you find a dead link or know something that belongs here, open an issue or a PR. The bar: it should be free (or very clearly worth paying for), good, and still current.
 
 ## License
 
 MIT
 
----
-
-**Curated by [Omar Elgammal](https://github.com/omarelgammal1)**
+— [Omar Elgammal](https://github.com/omarelgammal1)
